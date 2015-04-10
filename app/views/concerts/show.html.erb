@@ -1,0 +1,47 @@
+<div class="main">
+<h1><%= "#{@concert.artist}" %></h1>
+<h2><%= "#{@concert.city}" %></h2>
+
+<ul style= "list-style-type:none" >
+<li>$<%= "#{@concert.ticket_price}" %>.00</li>
+<li><%= "#{@concert.venue}" %></li>
+<li><%= "#{@concert.date}" %></li>
+</ul>
+
+<br>
+<h3><%= "#{@concert.description}" %></h3>
+<br>
+
+
+
+<ul style="list-style-type:none">
+<% @concert.comments.each do |comment| %>
+<li><%="#{comment.author}"%></li>
+ <li><%="#{comment.content}"%></li>
+ <li><%="#{comment.date}"%></li>
+ <% end %>
+ </ul>
+
+ <br>
+
+<br>
+
+
+	<%= form_for [@concert, @comment] do |f| %>
+		<%= f.label :name %>
+		<%= f.text_field :author %>
+
+		<br>
+
+		<%= f.label :comment %>
+		<%= f.text_field :content %>
+
+		<br>
+
+		<%= f.submit 'Add Comment' %>
+
+	<% end %>
+<br>
+<%= link_to("Back To Concerts Page", concerts_path) %>
+
+</div>

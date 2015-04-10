@@ -1,0 +1,8 @@
+<ul style="list-style-type:none;">
+	<% @concerts.each do |concert| %>
+		<li><%= link_to("#{concert.artist} - #{concert.date}", concert_path(concert))%></li>
+	<% end %>
+</ul>
+
+<br>
+<%= link_to("Home", root_path) %>

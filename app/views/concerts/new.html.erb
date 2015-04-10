@@ -1,0 +1,45 @@
+
+<% if @concert.errors.any? %>
+	<ul>
+		<% @concert.errors.full_messages.each do |error_msg| %>
+			<li><%= error_msg %></li>
+		<% end %>
+	</ul>
+<% end %>
+
+<%= form_for [@concert] do |f| %>
+	<%= f.label :artist %>
+	<%= f.text_field :artist %>
+
+	<br>
+
+	<%= f.label :date %>
+	<%= f.text_field :date %>
+
+	<br>
+
+	<%= f.label :city %>
+	<%= f.text_field :city %>
+
+	<br>
+
+	<%= f.label :venue %>
+	<%= f.text_field :venue %>
+
+	<br>
+
+	<%= f.label :ticket_price %>
+	<%= f.text_field :ticket_price %>
+
+	<br>
+
+	<%= f.label :description %>
+	<%= f.text_field :description %>
+
+	<br>
+
+	<%= f.submit 'Add Concert' %>
+
+<% end %>
+<br>
+<%= link_to("Back To Concerts Page", concerts_path) %>

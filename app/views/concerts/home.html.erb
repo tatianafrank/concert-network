@@ -1,0 +1,8 @@
+<div class="main">
+	<h1> UPCOMING CONCERTS </h1>
+	<h2> <%=Date.today.strftime("%B") %> Concerts </h2>
+	<ul style="list-style-type: none">
+		<% @concerts_this_month.each do |concert| %>
+			<li><%= link_to("#{concert.artist} - #{concert.date}", concert_path(concert)) %></li>
+		<% end %>
+</div>
